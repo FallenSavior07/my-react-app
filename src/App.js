@@ -1,22 +1,22 @@
+
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import './Message.scss';
+
+const userName = "Ivan";
+
+function Message(props) {
+  return (
+    <p className="Message">Hello, {props.text}!</p>
+  );
+}
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Message text={userName} />
       </header>
     </div>
   );
