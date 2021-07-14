@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './scss/style.scss';
 import React, { useState } from 'react';
 
-const userName = prompt('Введите своё имя');
+const userName = 'Александр';
 
 function Message(props) {
   return (
@@ -33,22 +33,6 @@ function MessageForm(props) {
   );
 }
 
-function Chat(props) {
-  return (
-    <ul className="chat">
-      {props.messages.map((message, i) => {
-        return <li className="chat__item message" key={i}>
-          <div className="message__inner">
-            <p className="message__user">{message.author}</p>
-            <p className="message__date">{message.date}</p>
-          </div>
-          <p className="message__text">{message.text}</p>
-        </li>
-      })}
-    </ul>
-  );
-}
-
 function App() {
   const [messageList, setMessageList] = useState([]);
 
@@ -65,12 +49,45 @@ function App() {
     return [currentDate, currentTime].join(", ");
   }
 
+  // return (
+  //   <div className="App">
+  //     <header className="App-header">
+  //       <img src={logo} className="App-logo" alt="logo" />
+  //       <Message text={userName} />
+  //       <ul className="message-list">{messageList.map((message, i) => {
+  //         return <li className="message-list__item" key={i}>
+  //           <p></p>
+  //           {message.text}, {message.author}, {message.time}, {message.date}
+  //         </li>
+  //       })}</ul>
+  //       <MessageForm updateMessageList={updateMessageList} />
+  //     </header>
+  //   </div>
+  // );
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Message text={userName} />
-        <Chat messages={messageList} />
+        <table>
+          <thead>
+            <tr>
+              <th>Сообщение</th>
+              <th>Автор</th>
+              <th>Дата и время отправки</th>
+            </tr>
+          </thead>
+          <tbody>
+            {messageList.map((message, i) => {
+              return <tr className="message-list__item" key={i}>
+                <td>{message.text}</td>
+                <td>{message.author}</td>
+                <td>{message.date}</td>
+              </tr>
+            })}
+          </tbody>
+        </table>
         <MessageForm updateMessageList={updateMessageList} />
       </header>
     </div>
