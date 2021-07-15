@@ -17,6 +17,7 @@
     margin: 15px 0 0 0;
     background: transparent;
     border: 1px solid #E1E1E1;
+    border-radius: 15px;
     color: white;
     @include font(14px, 17px, 400);
     text-align: left;
@@ -41,5 +42,7 @@
 
     &__text {
         margin: 5px 0 0 0;
+        width: 370px;
+        word-wrap: break-word;
     }
 }
