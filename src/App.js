@@ -1,45 +1,48 @@
-
-import logo from './logo.svg';
 import './css/style.css';
-import React, { useCallback, useEffect, useState, } from 'react';
-import MessageForm from './MessageForm';
+import React, { useState } from 'react';
 import Chat from './Chat';
+import { List } from "@material-ui/core";
+import { ListItem } from "@material-ui/core";
 
-const userName = 'Вадим';
-const robotMessage = `Привет, ${userName}! Как дела?`;
+
+// import { makeStyles } from '@material-ui/core/styles';
+
+// const useStyles = makeStyles({
+//   root: {
+//     backgroundColor: 'red',
+//     color: props => props.color,
+//   },
+// });
+
+const exampleChats = [
+  { id: 'chat001', name: 'Александр' },
+  { id: 'chat002', name: 'Владимир' },
+  { id: 'chat003', name: 'Елена' }
+]
 
 function App() {
-  const [messageList, setMessageList] = useState([]);
-
-  const updateMessageList = useCallback((message, userName) => {
-    let currentDate = getDate();
-    setMessageList([...messageList, { author: userName, text: message, date: currentDate },]);
-  }, [messageList]);
-
-  const getDate = () => {
-    let currentDate = new Date().toLocaleDateString();
-    let currentTime = new Date().toLocaleTimeString().slice(0, -3);
-    return [currentDate, currentTime].join(", ");
-  }
-
-  useEffect(() => {
-    if (messageList.length !== 0) {
-      if (messageList[messageList.length - 1].author === userName) {
-        const timer = setTimeout(() => {
-          updateMessageList(robotMessage, 'Робот Василий');
-        }, 1500);
-        return () => clearTimeout(timer);
-      }
-    }
-  }, [messageList, updateMessageList]);
+  const [chats, setChats] = useState(exampleChats);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <MessageForm updateMessageList={updateMessageList} />
-        <Chat messages={messageList} />
-      </header>
+      <div className="App-header">
+        <div className="App__sidebar chats">
+          <List className="chats-list">
+            {chats.map((chat) => {
+              return <ListItem
+                className="chats-list__item"
+                key={chat.id}
+                button
+              >
+                {chat.name}
+              </ListItem>
+            })}
+          </List>
+        </div>
+        <div className="App__main">
+          <Chat className="chat" />
+        </div>
+      </div>
     </div>
   );
 }

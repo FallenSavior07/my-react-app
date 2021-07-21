@@ -1,7 +1,7 @@
 import './css/style.css';
 import React, { useEffect, useState, useRef } from 'react';
 import { TextField } from "@material-ui/core";
-import MaterialIcons from './MaterialIcons';
+import MuiButtons from './MuiButtons';
 
 const userName = 'Вадим';
 
@@ -13,11 +13,14 @@ export default function MessageForm(props) {
 	}
 
 	const handleSubmit = (event) => {
-		event.target[0].value = '';
 		event.preventDefault();
+		event.target[0].value = '';
+		setValue('');
 	}
 
-	const handleClick = () => props.updateMessageList(value, userName);
+	const handleClick = () => {
+		props.updateMessageList(value, userName);
+	}
 
 	const inputRef = useRef(null);
 
@@ -28,16 +31,17 @@ export default function MessageForm(props) {
 	return (
 		<form className="message-form" action="#" onSubmit={handleSubmit}>
 			<TextField
+				autoFocus
+				className="message-form__input"
 				id="outlined-basic"
 				label="Outlined"
-				variant="outlined"
-				className="message-form__input"
-				type="text"
-				placeholder="Напишите сообщение..."
 				onChange={handleChange}
-				autoFocus="true"
-				ref={inputRef} />
-			<MaterialIcons
+				placeholder="Напишите сообщение..."
+				ref={inputRef}
+				required
+				type="text"
+				variant="outlined" />
+			<MuiButtons
 				className="message-form__button"
 				click={handleClick} />
 		</form >
