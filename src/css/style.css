@@ -188,54 +188,20 @@ code {
 
 .message-form {
   display: flex;
-  align-items: center;
+  justify-content: center;
   min-width: 400px;
   min-height: 50px;
   position: relative;
-  margin: 50px 0 80px;
+  margin: 30px 0 0 0;
 }
 
 .message-form__input {
-  box-sizing: border-box;
-  min-width: 400px;
-  min-height: 50px;
-  padding: 10px 80px 10px 20px;
-  background-color: transparent;
-  border: 1px solid #E1E1E1;
-  border-radius: 3px;
-  outline: none;
-  font-family: inherit;
-  font-size: 14px;
-  line-height: 17px;
-  font-weight: 400;
-  font-style: normal;
+  width: 500px;
   color: white;
 }
 
 .message-form__input::placeholder {
   color: #B1B1B1;
-}
-
-.message-form__button {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 40px;
-  height: 40px;
-  box-sizing: border-box;
-  padding: 5px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  color: white;
-}
-
-.message-form__icon {
-  fill: white;
-}
-
-.message-form__button:hover .message-form__icon {
-  fill: goldenrod;
 }
 
 .chat {
@@ -244,7 +210,7 @@ code {
   align-items: center;
   width: 900px;
   min-height: 100px;
-  margin: 30px 0 0 0;
+  margin: 50px 0 80px;
   list-style-type: none;
 }
 

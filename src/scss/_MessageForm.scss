@@ -1,48 +1,27 @@
 .message-form {
-	@include flex-y-center;
+	display: flex;
+	justify-content: center;
 	min-width: 400px;
 	min-height: 50px;
 	position: relative;
-	margin: 50px 0 80px;
+	margin: 30px 0 0 0;
 
 	&__input {
-		box-sizing: border-box;
-		min-width: 400px;
-		min-height: 50px;
-		padding: 10px 80px 10px 20px;
-		background-color: transparent;
-		border: 1px solid #E1E1E1;
-		border-radius: 3px;
-		outline: none;
-		font-family: inherit;
-		@include font (14px, 17px, 400);
+		width: 500px;
+		// box-sizing: border-box;
+		// min-width: 400px;
+		// min-height: 50px;
+		// padding: 10px 80px 10px 20px;
+		// background-color: transparent;
+		// border: 1px solid #E1E1E1;
+		// border-radius: 3px;
+		// outline: none;
+		// font-family: inherit;
+		// @include font (14px, 17px, 400);
 		color: white;
 	}
 
 	&__input::placeholder {
 		color: #B1B1B1;
 	}
-
-	&__button {
-		position: absolute;
-		top: 5px;
-		right: 5px;
-		width: 40px;
-		height: 40px;
-		box-sizing: border-box;
-		padding: 5px;
-		background-color: transparent;
-		border: none;
-		cursor: pointer;
-		color: white;
-	}
-
-	&__icon {
-		fill: white;
-	}
-
-	&__button:hover &__icon {
-		fill: goldenrod;
-	}
-
 }
