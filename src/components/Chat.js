@@ -1,4 +1,4 @@
-import './css/style.css';
+import '../css/style.css';
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Message from './Message';
 import MessageForm from './MessageForm';
@@ -7,6 +7,8 @@ const userName = 'Вадим';
 const robotMessage = `Привет, ${userName}! Как дела?`;
 
 export default function Chat(props) {
+
+
 	const [messageList, setMessageList] = useState([]);
 	const timer = useRef(null);
 

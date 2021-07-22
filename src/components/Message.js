@@ -1,4 +1,4 @@
-import './css/style.css';
+import '../css/style.css';
 import React from 'react';
 
 export default function Message(props) {
