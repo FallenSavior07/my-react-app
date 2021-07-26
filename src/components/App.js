@@ -1,8 +1,7 @@
 import '../css/style.css';
-import React, { useState } from 'react';
-import Chat from './Chat';
-import { List } from "@material-ui/core";
-import { ListItem } from "@material-ui/core";
+import React, { useState, useCallback } from 'react';
+import Router from './Router';
+import { Link } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
 let theme = createTheme({
@@ -16,39 +15,48 @@ let theme = createTheme({
   },
 });
 
-const exampleChats = [
-  { id: 'chat001', name: 'Александр' },
-  { id: 'chat002', name: 'Владимир' },
-  { id: 'chat003', name: 'Елена' }
-]
+export default function App() {
+  const [chats, setChats] = useState([
+    { id: 'chat001', name: 'Александр' },
+    { id: 'chat002', name: 'Владимир' },
+    { id: 'chat003', name: 'Елена' }
+  ])
 
-function App() {
-  const [chats, setChats] = useState(exampleChats);
+  const [currentChat, setCurrentChat] = useState(chats[0]);
+
+  const ChangeChat = (chat) => setCurrentChat(chat);
+
+  const getIsChatExists = useCallback((chatId) => {
+    return Boolean(chats.find((chat) => chat.id === chatId))
+  }, [chats]);
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
-        <div className="App-header">
-          <div className="App__sidebar chats">
-            <List className="chats-list">
-              {chats.map((chat) => {
-                return <ListItem
-                  className="chats-list__item"
-                  key={chat.id}
-                  button
-                >
-                  {chat.name}
-                </ListItem>
-              })}
-            </List>
-          </div>
-          <div className="App__main">
-            <Chat className="chat" />
-          </div>
-        </div>
+      <div className="app">
+        <React.Fragment>
+          <header className="app__header header">
+            <nav className="header__nav nav">
+              <ul className="nav__list">
+                <li className="nav__item nav-item">
+                  <Link className="nav-item__link link" to="/">Home page</Link>
+                </li>
+                <li className="nav__item nav-item">
+                  <Link className="nav-item__link link" to="/chats">Chats</Link>
+                </li>
+                <li className="nav__item nav-item">
+                  <Link className="nav-item__link link" to="/profile">Profile</Link>
+                </li>
+              </ul>
+            </nav>
+          </header>
+          <Router
+            chats={chats}
+            currentChat={currentChat}
+            ChangeChat={ChangeChat}
+            getIsChatExists={getIsChatExists}
+          />
+        </React.Fragment>
       </div>
     </ThemeProvider>
   );
 }
-
-export default App;

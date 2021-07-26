@@ -1,9 +1,8 @@
-@import 'reset';
 @import 'variables';
+@import 'reset';
+@import 'general';
 @import 'mixins';
-@import 'index';
-@import 'App';
-@import 'Message';
-@import 'MessageForm';
-@import 'Chat';
-@import 'chats-list';
+@import 'app';
+@import 'chats';
+@import 'chat';
+@import 'message';

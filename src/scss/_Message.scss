@@ -1,7 +1,40 @@
-.Message {
-	margin: 50px 0 0 0;
+.message {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 400px;
+	min-height: 50px;
+	box-sizing: border-box;
 	padding: 15px;
-	font-size: calc(10px + 4vmin);
-	font-weight: 900;
-	color: goldenrod;
+	margin: 15px 0 0 0;
+	background: transparent;
+	border: 1px solid #E1E1E1;
+	border-radius: 15px;
+	color: white;
+	@include font(14px, 17px, 400);
+	text-align: left;
+
+	&__inner {
+		display: flex;
+		align-items: center;
+	}
+
+	&__user {
+		color: goldenrod;
+		line-height: normal;
+		font-weight: 700;
+	}
+
+	&__date {
+		margin: 0 0 0 5px;
+		color: #b1b1b1;
+		font-size: 10px;
+		line-height: normal;
+	}
+
+	&__text {
+		margin: 5px 0 0 0;
+		width: 370px;
+		word-wrap: break-word;
+	}
 }

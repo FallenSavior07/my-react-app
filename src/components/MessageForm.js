@@ -32,7 +32,6 @@ export default function MessageForm(props) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		event.target[0].value = '';
 		setValue('');
 	}
 
@@ -47,7 +46,7 @@ export default function MessageForm(props) {
 	}, [])
 
 	return (
-		<form className="message-form" action="#" onSubmit={handleSubmit}>
+		<form className="chat__form message-form" action="#" onSubmit={handleSubmit}>
 			<MessageInput
 				autoFocus
 				className='message-form__input'
@@ -57,7 +56,8 @@ export default function MessageForm(props) {
 				ref={inputRef}
 				required
 				type="text"
-				variant="outlined" />
+				variant="outlined"
+				value={value} />
 			<MuiButtons
 				className="message-form__button"
 				click={handleClick} />

@@ -1,5 +1,12 @@
 import '../css/style.css';
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, {
+	useState,
+	useRef,
+	useEffect,
+	useCallback,
+	useMemo
+} from 'react';
+import { Redirect, useParams } from 'react-router'
 import Message from './Message';
 import MessageForm from './MessageForm';
 
@@ -7,8 +14,8 @@ const userName = 'Вадим';
 const robotMessage = `Привет, ${userName}! Как дела?`;
 
 export default function Chat(props) {
-
-
+	const { getIsChatExists } = props;
+	const { chatId } = useParams();
 	const [messageList, setMessageList] = useState([]);
 	const timer = useRef(null);
 
@@ -22,7 +29,11 @@ export default function Chat(props) {
 		if (message !== '') {
 			let currentDate = getDate();
 			console.log(message);
-			setMessageList([...messageList, { author: userName, text: message, date: currentDate },]);
+			setMessageList([...messageList, {
+				author: userName,
+				text: message,
+				date: currentDate
+			},]);
 		}
 	}, [messageList]);
 
@@ -38,19 +49,29 @@ export default function Chat(props) {
 		return clearTimeout(timer.current)
 	}, []);
 
+	const IsChatExists = useMemo(() => {
+		return getIsChatExists(chatId)
+	},
+		[getIsChatExists, chatId])
+
+	if (!IsChatExists) {
+		return <Redirect to="/chats" />
+	}
+
 	return (
-		<React.Fragment>
+		<section className="chat container">
 			<MessageForm updateMessageList={updateMessageList} />
-			<ul className="message-list">
-				{messageList.map((message, i) => {
-					return <li className="message-list__item message" key={i}>
+			<ul className="chat__list" > {
+				messageList.map((message, i) => {
+					return <li className="chat__item message" key={i}>
 						<Message
 							author={message.author}
 							date={message.date}
-							text={message.text} />
+							text={message.text}
+						/>
 					</li>
-				})}
-			</ul>
-		</React.Fragment>
+				})
+			} </ul>
+		</section>
 	);
 }
