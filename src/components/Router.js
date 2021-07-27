@@ -15,7 +15,7 @@ export default function Router(props) {
 					<HomePage
 						chats={props.chats}
 						currentChat={props.currentChat}
-						ChangeChat={props.ChangeChat}
+						changeChat={props.changeChat}
 					/>
 				)}
 			/>
@@ -26,8 +26,10 @@ export default function Router(props) {
 					<Chats
 						chats={props.chats}
 						currentChat={props.currentChat}
-						ChangeChat={props.ChangeChat}
+						changeChat={props.changeChat}
 						getIsChatExists={props.getIsChatExists}
+						onAddChat={props.onAddChat}
+						onRemoveChat={props.onRemoveChat}
 					/>
 				)}
 			/>

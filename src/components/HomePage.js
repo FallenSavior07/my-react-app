@@ -8,13 +8,13 @@ export default function HomePage(props) {
 	const {
 		chats = [],
 		currentChat,
-		ChangeChat
+		changeChat
 	} = props;
 
 	const history = useHistory();
 
 	const handleChatLinkClick = (chat) => {
-		ChangeChat(chat);
+		changeChat(chat);
 		history.push(`/chats/${chat.id}`)
 	}
 

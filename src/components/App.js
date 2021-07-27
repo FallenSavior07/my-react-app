@@ -17,45 +17,77 @@ let theme = createTheme({
 
 export default function App() {
   const [chats, setChats] = useState([
-    { id: 'chat001', name: 'Александр' },
-    { id: 'chat002', name: 'Владимир' },
-    { id: 'chat003', name: 'Елена' }
+    { id: 'chat1', name: 'Александр' },
+    { id: 'chat2', name: 'Владимир' },
+    { id: 'chat3', name: 'Елена' }
   ])
 
   const [currentChat, setCurrentChat] = useState(chats[0]);
 
-  const ChangeChat = (chat) => setCurrentChat(chat);
+  const changeChat = (chat) => setCurrentChat(chat);
+
+  const generateId = () => {
+    let num = getRandomIntInclusive(0, 1000);
+    let id = '';
+    chats.forEach((message) => {
+      if (message.id !== `chat${num}`) {
+        id = `chat${num}`;
+      } else {
+        generateId();
+      }
+    })
+    return id
+  };
+
+  const getRandomIntInclusive = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
   const getIsChatExists = useCallback((chatId) => {
     return Boolean(chats.find((chat) => chat.id === chatId))
   }, [chats]);
 
+  const onAddChat = (userName, value) => {
+    setChats((currentChats) => [
+      ...currentChats,
+      { name: userName, id: `${generateId()}` },
+    ])
+  }
+
+  const onRemoveChat = (chatId) => {
+    setChats((currentChats) =>
+      currentChats.filter((chat) => chat.id !== chatId)
+    )
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <div className="app">
-        <React.Fragment>
-          <header className="app__header header">
-            <nav className="header__nav nav">
-              <ul className="nav__list">
-                <li className="nav__item nav-item">
-                  <Link className="nav-item__link link" to="/">Home page</Link>
-                </li>
-                <li className="nav__item nav-item">
-                  <Link className="nav-item__link link" to="/chats">Chats</Link>
-                </li>
-                <li className="nav__item nav-item">
-                  <Link className="nav-item__link link" to="/profile">Profile</Link>
-                </li>
-              </ul>
-            </nav>
-          </header>
-          <Router
-            chats={chats}
-            currentChat={currentChat}
-            ChangeChat={ChangeChat}
-            getIsChatExists={getIsChatExists}
-          />
-        </React.Fragment>
+        <header className="app__header header">
+          <nav className="header__nav nav">
+            <ul className="nav__list">
+              <li className="nav__item nav-item">
+                <Link className="nav-item__link link" to="/">Home page</Link>
+              </li>
+              <li className="nav__item nav-item">
+                <Link className="nav-item__link link" to="/chats">Chats</Link>
+              </li>
+              <li className="nav__item nav-item">
+                <Link className="nav-item__link link" to="/profile">Profile</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <Router
+          chats={chats}
+          currentChat={currentChat}
+          changeChat={changeChat}
+          getIsChatExists={getIsChatExists}
+          onAddChat={onAddChat}
+          onRemoveChat={onRemoveChat}
+        />
       </div>
     </ThemeProvider>
   );

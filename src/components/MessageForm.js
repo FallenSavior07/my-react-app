@@ -32,11 +32,8 @@ export default function MessageForm(props) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+		props.onSubmit(userName, value);
 		setValue('');
-	}
-
-	const handleClick = () => {
-		props.updateMessageList(value, userName);
 	}
 
 	const inputRef = useRef(null);
@@ -60,7 +57,7 @@ export default function MessageForm(props) {
 				value={value} />
 			<MuiButtons
 				className="message-form__button"
-				click={handleClick} />
+			/>
 		</form >
 	);
 }
