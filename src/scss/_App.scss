@@ -1,16 +1,10 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
   min-height: 100vh;
-  display: flex;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  background-color: #282c34;
 
-.App__main {
-  width: 1200px;
-  border: 1px solid #A4A4A4;
+  &__main {
+    display: flex;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
 }
