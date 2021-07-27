@@ -3,17 +3,20 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import { List, ListItem } from "@material-ui/core";
 import Chat from './Chat';
+import MessageForm from './MessageForm';
 
 export default function Chats(props) {
 	const {
 		chats = [],
 		currentChat,
-		ChangeChat
+		changeChat,
+		onAddChat,
+		onRemoveChat,
 	} = props;
 	const history = useHistory();
 
 	const handleChatLinkClick = (chat) => {
-		ChangeChat(chat)
+		changeChat(chat)
 		history.push(`/chats/${chat.id}`)
 	}
 
@@ -22,19 +25,26 @@ export default function Chats(props) {
 			<section className="sidebar chats">
 				<List className="chats__list">
 					{chats.map((chat) => {
-						return <ListItem
-							className="chats__item"
-							key={chat.id}
-							selected={chat.id === currentChat.id}
-							button
-							onClick={() => handleChatLinkClick(chat)}
-						>
-							{chat.name}
-						</ListItem>
+						return <div>
+							<ListItem
+								className="chats__item"
+								key={chat.id}
+								selected={chat.id === currentChat.id}
+								button
+								onClick={() => handleChatLinkClick(chat)}
+							>
+								{chat.name}
+							</ListItem>
+							<button onClick={() => onRemoveChat(chat.id)} type="button">
+								Удалить
+							</button>
+						</div>
 					})}
 				</List>
 			</section>
-			<Chat getIsChatExists={props.getIsChatExists} />
+			<section className="chat container">
+				<MessageForm onSubmit={onAddChat} />
+			</section>
 		</main>
 	);
 }

@@ -25,7 +25,7 @@ export default function Chat(props) {
 		return [currentDate, currentTime].join(", ");
 	}
 
-	const updateMessageList = useCallback((message, userName) => {
+	const updateMessageList = useCallback((userName, message) => {
 		if (message !== '') {
 			let currentDate = getDate();
 			console.log(message);
@@ -60,7 +60,7 @@ export default function Chat(props) {
 
 	return (
 		<section className="chat container">
-			<MessageForm updateMessageList={updateMessageList} />
+			<MessageForm onSubmit={updateMessageList} />
 			<ul className="chat__list" > {
 				messageList.map((message, i) => {
 					return <li className="chat__item message" key={i}>
