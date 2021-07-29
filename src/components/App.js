@@ -20,14 +20,14 @@ export default function App() {
     { id: 'chat1', name: 'Александр' },
     { id: 'chat2', name: 'Владимир' },
     { id: 'chat3', name: 'Елена' }
-  ])
+  ]);
 
   const [currentChat, setCurrentChat] = useState(chats[0]);
 
   const changeChat = (chat) => setCurrentChat(chat);
 
   const generateId = () => {
-    let num = getRandomIntInclusive(0, 1000);
+    let num = Math.floor(Math.random() * 999);
     let id = '';
     chats.forEach((message) => {
       if (message.id !== `chat${num}`) {
@@ -38,12 +38,6 @@ export default function App() {
     })
     return id
   };
-
-  const getRandomIntInclusive = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
 
   const getIsChatExists = useCallback((chatId) => {
     return Boolean(chats.find((chat) => chat.id === chatId))

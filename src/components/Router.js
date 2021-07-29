@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router';
 import HomePage from './HomePage';
 import Chat from './Chat';
 import Chats from './Chats';
+import Profile from './Profile';
 
 export default function Router(props) {
 	return (
@@ -39,9 +40,12 @@ export default function Router(props) {
 					return <Chat getIsChatExists={props.getIsChatExists} />
 				}}
 			/>
-			<Route path="/profile">
-				<p>Profile page</p>
-			</Route>
+			<Route
+				path="/profile"
+				render={() => {
+					return <Profile />
+				}}
+			/>
 			<Route>
 				<p>404: not found</p>
 			</Route>

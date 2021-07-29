@@ -1,8 +1,8 @@
 import '../css/style.css';
 import React, { useEffect, useState, useRef } from 'react';
-import { TextField, withStyles } from "@material-ui/core";
-import MuiButtons from './MuiButtons';
-
+import { Button, Icon, TextField } from "@material-ui/core";
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
 
 const userName = 'Вадим';
 
@@ -22,8 +22,16 @@ const MessageInput = withStyles({
 	},
 })(TextField);
 
+const useStyles = makeStyles((theme) => ({
+	button: {
+		margin: theme.spacing(1),
+		color: "#FFFFFF"
+	},
+}));
 
 export default function MessageForm(props) {
+	const classes = useStyles();
+
 	const [value, setValue] = useState("");
 
 	const handleChange = (event) => {
@@ -55,9 +63,16 @@ export default function MessageForm(props) {
 				type="text"
 				variant="outlined"
 				value={value} />
-			<MuiButtons
-				className="message-form__button"
-			/>
+			<Button
+				variant="contained"
+				color="primary"
+				className={clsx(classes.button, 'message-form__button')}
+				endIcon={<Icon>send</Icon>}
+				type="submit"
+				onClick={props.click}
+			>
+				Отправить
+			</Button>
 		</form >
 	);
 }
