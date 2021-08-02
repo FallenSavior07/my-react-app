@@ -1,0 +1,20 @@
+.chats {
+	padding: 50px 0;
+
+	&__wrapper {
+		display: flex;
+	}
+
+	&__list {
+		min-width: 200px;
+		margin: 0 50px 0 0;
+	}
+
+	&__item {
+		margin: 0 0 15px 0;
+	}
+
+	&__input {
+		margin: 0 0 0 100px;
+	}
+}

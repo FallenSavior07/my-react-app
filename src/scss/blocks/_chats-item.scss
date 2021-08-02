@@ -1,0 +1,17 @@
+.chats-item {
+	position: relative;
+
+	&__button {
+		position: absolute;
+		top: 10px;
+		left: -30px;
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
+		fill: $white-color;
+	}
+
+	&__button:hover {
+		fill: $main-theme-color;
+	}
+}

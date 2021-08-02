@@ -24,6 +24,7 @@ code {
 }
 
 .container {
+	width: 1200px;
 	margin: 0 auto;
 }
 
@@ -33,4 +34,8 @@ code {
 
 .link {
 	text-decoration-line: none;
+}
+
+.link:hover {
+	color: $main-theme-color;
 }

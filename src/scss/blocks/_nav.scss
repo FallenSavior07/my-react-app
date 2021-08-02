@@ -1,0 +1,9 @@
+.nav {
+	min-height: 60px;
+	@include flex-y-center;
+
+	&__list {
+		@include flex-space-between;
+		width: 300px;
+	}
+}

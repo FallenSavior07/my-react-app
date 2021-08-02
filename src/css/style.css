@@ -155,6 +155,7 @@ code {
 }
 
 .container {
+  width: 1200px;
   margin: 0 auto;
 }
 
@@ -166,29 +167,90 @@ code {
   text-decoration-line: none;
 }
 
+.link:hover {
+  color: goldenrod;
+}
+
 .app {
   min-height: 100vh;
   background-color: #282c34;
 }
 
 .app__main {
+  color: #FFFFFF;
+}
+
+.header {
+  background-color: #3b3939;
+}
+
+.nav {
+  min-height: 60px;
   display: flex;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.nav-item__link {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+  font-style: normal;
+  color: #FFFFFF;
+}
+
+.chats {
+  padding: 50px 0;
+}
+
+.chats__wrapper {
+  display: flex;
 }
 
 .chats__list {
-  min-width: 400px;
+  min-width: 200px;
+  margin: 0 50px 0 0;
+}
+
+.chats__item {
+  margin: 0 0 15px 0;
+}
+
+.chats__input {
   margin: 0 0 0 100px;
 }
 
-.chats__list__item {
-  margin: 30px 0 0 0;
+.chats-item {
+  position: relative;
+}
+
+.chats-item__button {
+  position: absolute;
+  top: 10px;
+  left: -30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  fill: #FFFFFF;
+}
+
+.chats-item__button:hover {
+  fill: goldenrod;
 }
 
 .chat {
-  width: 1200px;
+  padding: 50px 0;
+}
+
+.chat__wrapper {
+  width: 800px;
   border: 1px solid #A4A4A4;
+  margin: 0 auto;
 }
 
 .chat__list {
@@ -209,6 +271,11 @@ code {
   margin: 30px 0 0 0;
 }
 
+.home__text {
+  padding: 50px 0;
+  text-align: center;
+}
+
 .message {
   display: flex;
   flex-direction: column;
@@ -221,7 +288,7 @@ code {
   background: transparent;
   border: 1px solid #E1E1E1;
   border-radius: 15px;
-  color: white;
+  color: #FFFFFF;
   font-size: 14px;
   line-height: 17px;
   font-weight: 400;
@@ -256,5 +323,6 @@ code {
 .profile {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 /*# sourceMappingURL=style.css.map */
