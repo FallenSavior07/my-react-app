@@ -252,4 +252,9 @@ code {
   width: 370px;
   word-wrap: break-word;
 }
+
+.profile {
+  display: flex;
+  flex-direction: column;
+}
 /*# sourceMappingURL=style.css.map */

@@ -2,7 +2,6 @@ import '../css/style.css';
 import React from 'react';
 import { useHistory } from 'react-router';
 import { List, ListItem } from "@material-ui/core";
-import Chat from './Chat';
 import MessageForm from './MessageForm';
 
 export default function Chats(props) {
