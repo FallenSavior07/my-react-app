@@ -69,7 +69,10 @@ export default function Chats() {
 						})}
 					</List>
 					<div className="chats__input">
-						<MessageForm onSubmit={handleAddChat} />
+						<MessageForm
+							label="Введите новое имя..."
+							onSubmit={handleAddChat}
+						/>
 					</div>
 				</div>
 			</section>

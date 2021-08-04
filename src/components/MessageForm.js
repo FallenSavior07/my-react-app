@@ -29,6 +29,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MessageForm(props) {
+	const {
+		label = "Напишите сообщение...",
+		onSubmit
+	} = props;
+
 	const classes = useStyles();
 
 	const [value, setValue] = useState("");
@@ -39,7 +44,7 @@ export default function MessageForm(props) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		props.onSubmit(value, AUTHORS.ME);
+		onSubmit(value, AUTHORS.ME);
 		setValue('');
 	}
 
@@ -56,7 +61,7 @@ export default function MessageForm(props) {
 				autoFocus
 				className='message-form__input'
 				id="outlined-basic"
-				label="Напишите сообщение..."
+				label={label}
 				onChange={handleChange}
 				ref={inputRef}
 				required
