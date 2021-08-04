@@ -1,12 +1,12 @@
 import '../css/style.css';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import MessageForm from './MessageForm';
 import { withStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { changeIsOnline, changeName } from '../actions/profile';
 import { profileSelector } from '../selectors/profile';
-import MessageForm from './MessageForm';
 
 const GreenCheckbox = withStyles({
 	root: {

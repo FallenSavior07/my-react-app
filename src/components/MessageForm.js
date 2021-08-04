@@ -1,8 +1,8 @@
 import '../css/style.css';
 import React, { useEffect, useState, useRef } from 'react';
+import clsx from 'clsx';
 import { Button, Icon, TextField } from "@material-ui/core";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import { AUTHORS } from './App/constants';
 
 const MessageInput = withStyles({

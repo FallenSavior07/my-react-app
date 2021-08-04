@@ -1,7 +1,7 @@
 import '../../css/style.css';
 import React from 'react';
-import Router from '../Router';
 import { Link } from 'react-router-dom';
+import Router from '../Router';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
 let theme = createTheme({

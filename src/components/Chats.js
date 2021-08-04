@@ -1,9 +1,9 @@
+import '../css/style.css';
 import React from 'react';
 import { useHistory } from 'react-router';
-import { List, ListItem } from "@material-ui/core";
-import '../css/style.css';
-import MessageForm from './MessageForm';
 import { useDispatch, useSelector } from 'react-redux';
+import { List, ListItem } from "@material-ui/core";
+import MessageForm from './MessageForm';
 import { addChat, removeChat } from "../actions/chats";
 import { setCurrentChat } from "../actions/chat";
 import { chatsSelector } from '../selectors/chats';
