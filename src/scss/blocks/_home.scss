@@ -1,6 +1,15 @@
 .home {
-	&__text {
+	&__inner {
 		padding: 50px 0;
+	}
+
+	&__title {
+		@include font(24px, 29px, 400);
+		text-align: center;
+	}
+
+	&__text {
+		margin: 15px 0 0 0;
 		text-align: center;
 	}
 }

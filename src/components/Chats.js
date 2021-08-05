@@ -15,16 +15,6 @@ export default function Chats() {
 	const chats = useSelector(chatsSelector);
 	const currentChat = useSelector(chatSelector);
 
-	const generateId = () => {
-		let num = Math.floor(Math.random() * 999);
-		Object.values(chats).forEach((chat) => {
-			if (chat.id === `chat${num}`) {
-				generateId();
-			}
-		})
-		return `chat${num}`
-	};
-
 	const handleChatLinkClick = (chat) => {
 		handlesetCurrentChat(chat);
 		history.push(`/chats/${chat.id}`);
@@ -32,7 +22,7 @@ export default function Chats() {
 	}
 
 	const handleAddChat = (userName) => {
-		dispatch(addChat(generateId(), userName));
+		dispatch(addChat(`chat${Date.now()}`, userName));
 	}
 
 	const handleRemoveChat = (chatId) => {
