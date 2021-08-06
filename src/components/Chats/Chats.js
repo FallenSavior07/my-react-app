@@ -1,37 +1,16 @@
-import '../css/style.css';
+import '../../css/style.css';
 import React from 'react';
-import { useHistory } from 'react-router';
-import { useDispatch, useSelector } from 'react-redux';
 import { List, ListItem } from "@material-ui/core";
-import MessageForm from './MessageForm';
-import { addChat, removeChat } from "../actions/chats";
-import { setCurrentChat } from "../actions/chat";
-import { chatsSelector } from '../selectors/chats';
-import { chatSelector } from '../selectors/chat';
+import MessageForm from '../MessageForm/MessageForm';
 
-export default function Chats() {
-	const history = useHistory();
-	const dispatch = useDispatch();
-	const chats = useSelector(chatsSelector);
-	const currentChat = useSelector(chatSelector);
-
-	const handleChatLinkClick = (chat) => {
-		handlesetCurrentChat(chat);
-		history.push(`/chats/${chat.id}`);
-		console.log(currentChat.id);
-	}
-
-	const handleAddChat = (userName) => {
-		dispatch(addChat(`chat${Date.now()}`, userName));
-	}
-
-	const handleRemoveChat = (chatId) => {
-		dispatch(removeChat(chatId));
-	}
-
-	const handlesetCurrentChat = (chat) => {
-		dispatch(setCurrentChat(chat));
-	}
+export default function Chats(props) {
+	const {
+		chats,
+		currentChat,
+		handleChatLinkClick,
+		handleAddChat,
+		handleRemoveChat,
+	} = props;
 
 	return (
 		<main className="app__main main">

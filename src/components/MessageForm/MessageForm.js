@@ -1,9 +1,9 @@
-import '../css/style.css';
-import React, { useEffect, useState, useRef } from 'react';
+import '../../css/style.css';
+import React, { useState, useRef } from 'react';
 import clsx from 'clsx';
 import { Button, Icon, TextField } from "@material-ui/core";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { AUTHORS } from './App/constants';
+import { AUTHORS } from '../App/constants';
 
 const MessageInput = withStyles({
 	root: {
@@ -38,6 +38,8 @@ export default function MessageForm(props) {
 
 	const [value, setValue] = useState("");
 
+	const inputRef = useRef(null);
+
 	const handleChange = (event) => {
 		setValue(event.target.value);
 	}
@@ -46,14 +48,8 @@ export default function MessageForm(props) {
 		event.preventDefault();
 		onSubmit(value, AUTHORS.ME);
 		setValue('');
+		setTimeout(() => inputRef.current?.focus(), 200)
 	}
-
-	const inputRef = useRef(null);
-
-	useEffect(() => {
-		inputRef.current?.focus();
-	}, [])
-
 
 	return (
 		<form className="chat__form message-form" action="#" onSubmit={handleSubmit}>
