@@ -13,9 +13,8 @@ export default function ChatsContainer() {
 	const dispatch = useDispatch();
 	const chats = useSelector(chatsSelector);
 	const currentChat = useSelector(chatSelector);
-	console.log(currentChat);
 
-	const handleChatLinkClick = (chat) => {
+	const handleOpenChat = (chat) => {
 		handleSetCurrentChat(chat);
 		history.push(`/chats/${chat.id}`);
 	}
@@ -36,7 +35,7 @@ export default function ChatsContainer() {
 		<Chats
 			chats={chats}
 			currentChat={currentChat}
-			handleChatLinkClick={handleChatLinkClick}
+			handleOpenChat={handleOpenChat}
 			handleAddChat={handleAddChat}
 			handleRemoveChat={handleRemoveChat}
 		/>

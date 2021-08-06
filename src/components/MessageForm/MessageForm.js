@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MessageForm(props) {
 	const {
+		className = "chat__form",
 		label = "Напишите сообщение...",
 		onSubmit
 	} = props;
@@ -52,10 +53,10 @@ export default function MessageForm(props) {
 	}
 
 	return (
-		<form className="chat__form message-form" action="#" onSubmit={handleSubmit}>
+		<form className={clsx(className, 'message-form__button')} action="#" onSubmit={handleSubmit}>
 			<MessageInput
 				autoFocus
-				className='message-form__input'
+				className="message-form__input"
 				id="outlined-basic"
 				label={label}
 				onChange={handleChange}
