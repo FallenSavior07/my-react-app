@@ -33,8 +33,8 @@ export default function Profile(props) {
 					<div className="profile__info info">
 						<h4 className="info__title">Информация о пользователе</h4>
 						<img className="info__image" src={avatar} alt="avatar" width="120" height="120" />
-						<p className="info__name">Name: {name}</p>
-						<p className="info__age">Age: {age}</p>
+						<p className="info__name">Имя: {name}</p>
+						<p className="info__age">Возраст: {age}</p>
 					</div>
 					<hr className="profile__line" />
 					<div className="profile__settings settings">

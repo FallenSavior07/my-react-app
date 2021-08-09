@@ -7,3 +7,6 @@ export const MESSAGES = {
 	DEFAULT_USER_MESSSAGE: 'Привет!',
 	DEFAULT_BOT_MESSSAGE: `Привет, ${AUTHORS.ME}! Как дела?`
 }
+
+export const API_URL_PUBLIC = "https://api.github.com/gists/public";
+export const API_URL_GIST = "https://api.github.com/gists/";
