@@ -1,4 +1,6 @@
 .settings {
+	padding: 0 0 50px 0;
+
 	&__title {
 		@include font(30px, 34px, 500);
 	}
