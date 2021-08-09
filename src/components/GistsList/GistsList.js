@@ -1,39 +1,30 @@
 import '../../css/style.css';
-import React, { useState, useEffect } from 'react';
-import { API_URL_PUBLIC } from '../App/constants';
+import React, { useEffect } from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { Button } from "@material-ui/core";
+import { useDispatch, useSelector } from 'react-redux';
+import { gistsSelector } from '../../selectors/gists';
+import { fetchGists } from '../../actions/gists';
+import { GISTS_REQUEST_STATUS } from './constants';
+import { useCallback } from 'react';
 
 export default function GistsList() {
-    const [gists, setGists] = useState([]);
-    const [error, setError] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
+    const dispatch = useDispatch();
+    const { gists, status } = useSelector(gistsSelector);
 
-    const requestGists = async () => {
-        setError(false);
-        setIsLoading(true);
-        try {
-            const response = await fetch(API_URL_PUBLIC);
-            if (!response.ok) {
-                throw new Error(`Request failed with status ${response.status}`);
-            }
-            const result = await response.json();
-            setGists(result);
-        }
-        catch (err) {
-            setError(true);
-            console.error(err);
-        }
-        finally {
-            setIsLoading(false);
-        }
-    }
+    const requestGists = useCallback(() => {
+        dispatch(fetchGists());
+    }, [dispatch])
 
     useEffect(() => {
-        requestGists()
-    }, []);
+        requestGists();
+    }, [requestGists]);
 
-    if (error) {
+    const renderGist = useCallback((gist) => {
+        return <li className="gists__item" key={gist.id}>{gist.description}</li>
+    }, [])
+
+    if (status === GISTS_REQUEST_STATUS.ERROR) {
         return (
             <main className="app__main main">
                 <section className="gists">
@@ -53,7 +44,7 @@ export default function GistsList() {
         );
     }
 
-    if (isLoading) {
+    if (status === GISTS_REQUEST_STATUS.LOADING) {
         return (
             <main className="app__main main">
                 <section className="gists">
@@ -70,9 +61,7 @@ export default function GistsList() {
         <main className="app__main main">
             <section className="gists">
                 <div className="gists__inner container">
-                    <ul className="gists__list">{gists.map((gist) => {
-                        return <li className="gists__item" key={gist.id}>{gist.description}</li>
-                    })}</ul>
+                    <ul className="gists__list">{gists.map(renderGist)}</ul>
                 </div>
             </section>
         </main>
