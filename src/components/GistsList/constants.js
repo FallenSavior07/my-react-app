@@ -1,0 +1,5 @@
+export const GISTS_REQUEST_STATUS = {
+	IDLE: 0,
+	LOADING: 1,
+	ERROR: 2,
+}

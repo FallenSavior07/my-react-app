@@ -5,6 +5,7 @@ import Home from '../Home/Home';
 import ChatsContainer from '../Chats/ChatsContainer';
 import ChatContainer from '../Chat/ChatContainer';
 import ProfileContainer from '../Profile/ProfileContainer';
+import GistsList from '../GistsList/GistsList';
 
 export default function Router() {
 	return (
@@ -20,6 +21,9 @@ export default function Router() {
 			</Route>
 			<Route path="/profile">
 				<ProfileContainer />
+			</Route>
+			<Route path="/gists">
+				<GistsList />
 			</Route>
 			<Route>
 				<p>404: not found</p>
