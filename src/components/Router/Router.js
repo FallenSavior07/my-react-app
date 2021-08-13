@@ -1,10 +1,10 @@
-import '../css/style.css';
+import '../../css/style.css';
 import React from 'react';
 import { Switch, Route } from 'react-router';
-import Home from './Home';
-import Chat from './Chat';
-import Chats from './Chats';
-import Profile from './Profile';
+import Home from '../Home/Home';
+import ChatsContainer from '../Chats/ChatsContainer';
+import ChatContainer from '../Chat/ChatContainer';
+import ProfileContainer from '../Profile/ProfileContainer';
 
 export default function Router() {
 	return (
@@ -13,13 +13,13 @@ export default function Router() {
 				<Home />
 			</Route>
 			<Route path="/chats" exact>
-				<Chats />
+				<ChatsContainer />
 			</Route>
 			<Route path="/chats/:chatId">
-				<Chat />
+				<ChatContainer />
 			</Route>
 			<Route path="/profile">
-				<Profile />
+				<ProfileContainer />
 			</Route>
 			<Route>
 				<p>404: not found</p>

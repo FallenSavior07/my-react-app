@@ -1,9 +1,9 @@
-import '../css/style.css';
-import React, { useEffect, useState, useRef } from 'react';
+import '../../css/style.css';
+import React, { useState, useRef } from 'react';
+import clsx from 'clsx';
 import { Button, Icon, TextField } from "@material-ui/core";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import { AUTHORS } from './App/constants';
+import { AUTHORS } from '../App/constants';
 
 const MessageInput = withStyles({
 	root: {
@@ -29,9 +29,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MessageForm(props) {
+	const {
+		className = "chat__form",
+		label = "Напишите сообщение...",
+		onSubmit
+	} = props;
+
 	const classes = useStyles();
 
 	const [value, setValue] = useState("");
+
+	const inputRef = useRef(null);
 
 	const handleChange = (event) => {
 		setValue(event.target.value);
@@ -39,24 +47,18 @@ export default function MessageForm(props) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		props.onSubmit(value, AUTHORS.ME);
+		onSubmit(value, AUTHORS.ME);
 		setValue('');
+		setTimeout(() => inputRef.current?.focus(), 200)
 	}
 
-	const inputRef = useRef(null);
-
-	useEffect(() => {
-		inputRef.current?.focus();
-	}, [])
-
-
 	return (
-		<form className="chat__form message-form" action="#" onSubmit={handleSubmit}>
+		<form className={clsx(className, 'message-form__button')} action="#" onSubmit={handleSubmit}>
 			<MessageInput
 				autoFocus
-				className='message-form__input'
+				className="message-form__input"
 				id="outlined-basic"
-				label="Напишите сообщение..."
+				label={label}
 				onChange={handleChange}
 				ref={inputRef}
 				required
