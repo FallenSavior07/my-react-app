@@ -1,0 +1,6 @@
+.nav-item {
+	&__link {
+		@include font(20px, 24px, 400);
+		color: $white-color;
+	}
+}

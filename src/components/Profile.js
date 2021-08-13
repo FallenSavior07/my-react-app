@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { changeIsOnline } from '../actions/profile';
+import { profileSelector } from '../selectors/profile';
 
 const GreenCheckbox = withStyles({
 	root: {
@@ -16,8 +17,8 @@ const GreenCheckbox = withStyles({
 	checked: {},
 })((props) => <Checkbox color="default" {...props} />);
 
-export default function Profile(props) {
-	const { age, name, isOnline } = useSelector((state) => state.profile);
+export default function Profile() {
+	const { age, name, isOnline } = useSelector(profileSelector);
 
 	const dispatch = useDispatch();
 
@@ -27,7 +28,7 @@ export default function Profile(props) {
 
 	return (
 		<main className="app__main main">
-			<section className="profile">
+			<section className="profile container">
 				<h2 className="profile__text">Profile page</h2>
 				<p className="profile__name">Name: {name}</p>
 				<p className="profile__age">Age: {age}</p>

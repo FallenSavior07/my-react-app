@@ -3,8 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Button, Icon, TextField } from "@material-ui/core";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-
-const userName = 'Вадим';
+import { AUTHORS } from './App/constants';
 
 const MessageInput = withStyles({
 	root: {
@@ -40,7 +39,7 @@ export default function MessageForm(props) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		props.onSubmit(userName, value);
+		props.onSubmit(value, AUTHORS.ME);
 		setValue('');
 	}
 
@@ -49,6 +48,7 @@ export default function MessageForm(props) {
 	useEffect(() => {
 		inputRef.current?.focus();
 	}, [])
+
 
 	return (
 		<form className="chat__form message-form" action="#" onSubmit={handleSubmit}>
