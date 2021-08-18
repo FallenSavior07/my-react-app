@@ -4,8 +4,8 @@ import { Redirect, useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import Chat from '../Chat/Chat';
 import { addMessageWithThunk } from "../../actions/messages";
-import { chatsSelector } from '../../selectors/chats';
 import { currentDate } from '../../shared/currentDate';
+import { useIsChatExists } from '../../hooks/useIsChatExists';
 
 export default function ChatContainer() {
 	const { chatId } = useParams();
@@ -23,12 +23,7 @@ export default function ChatContainer() {
 		}
 	}, [chatId, dispatch]);
 
-	const useIsChatExists = ({ chatId }) => {
-		const chats = useSelector(chatsSelector);
-		return Boolean(Object.values(chats).find((chat) => chat.id === chatId));
-	}
-
-	const isChatExists = useIsChatExists({ chatId })
+	const isChatExists = useIsChatExists({ chatId });
 
 	if (!isChatExists) {
 		return <Redirect to="/chats" />

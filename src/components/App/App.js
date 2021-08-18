@@ -31,6 +31,9 @@ export default function App() {
               <li className="nav__item nav-item">
                 <Link className="nav-item__link link" to="/profile">Профиль</Link>
               </li>
+              <li className="nav__item nav-item">
+                <Link className="nav-item__link link" to="/gists">Gists</Link>
+              </li>
             </ul>
           </nav>
         </header>
