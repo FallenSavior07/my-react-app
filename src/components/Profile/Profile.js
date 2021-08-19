@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import avatar from '../../img/avatar.png';
+import Button from '../Button/Button';
 
 const GreenCheckbox = withStyles({
 	root: {
@@ -22,7 +23,8 @@ export default function Profile(props) {
 		name,
 		isOnline,
 		handleChangeIsOnline,
-		handleChangeName
+		handleChangeName,
+		handleSignOut
 	} = props;
 
 	return (
@@ -41,7 +43,11 @@ export default function Profile(props) {
 						<h4 className="settings__title">Настройки</h4>
 						<FormControlLabel
 							className="settings__online-status"
-							control={<GreenCheckbox checked={isOnline} onChange={handleChangeIsOnline} name="checkedG" />}
+							control={<GreenCheckbox
+								checked={isOnline}
+								onChange={handleChangeIsOnline}
+								name="checkedG"
+							/>}
 							label='Показывать статус "в сети"?'
 						/>
 						<div className="settings__name change-name-form">
@@ -53,6 +59,13 @@ export default function Profile(props) {
 							/>
 						</div>
 					</div>
+					<hr className="profile__line" />
+					<Button
+						className="profile__exit-button"
+						onSubmit={handleSignOut}
+						text="Выйти из аккаунта"
+						type="button"
+					/>
 				</div>
 			</section>
 		</main>

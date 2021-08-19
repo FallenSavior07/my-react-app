@@ -1,8 +1,12 @@
 import '../../css/style.css';
 import React from 'react';
+import firebase from 'firebase';
 import { Link } from 'react-router-dom';
 import Router from '../Router/Router';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { changeIsAuthed } from '../../actions/profile';
 
 let theme = createTheme({
   palette: {
@@ -16,6 +20,12 @@ let theme = createTheme({
 });
 
 export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => dispatch(changeIsAuthed(Boolean(user))))
+  });
+
   return (
     <ThemeProvider theme={theme}>
       <div className="app">
@@ -29,10 +39,16 @@ export default function App() {
                 <Link className="nav-item__link link" to="/chats">Чаты</Link>
               </li>
               <li className="nav__item nav-item">
+                <Link className="nav-item__link link" to="/gists">Gists</Link>
+              </li>
+              <li className="nav__item nav-item">
                 <Link className="nav-item__link link" to="/profile">Профиль</Link>
               </li>
               <li className="nav__item nav-item">
-                <Link className="nav-item__link link" to="/gists">Gists</Link>
+                <Link className="nav-item__link link" to="/signup">Регистрация</Link>
+              </li>
+              <li className="nav__item nav-item">
+                <Link className="nav-item__link link" to="/login">Войти в аккаунт</Link>
               </li>
             </ul>
           </nav>

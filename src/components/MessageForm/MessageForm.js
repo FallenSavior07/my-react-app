@@ -71,7 +71,6 @@ export default function MessageForm(props) {
 				className={clsx(classes.button, 'message-form__button')}
 				endIcon={<Icon>send</Icon>}
 				type="submit"
-				onClick={props.click}
 			>
 				Отправить
 			</Button>
