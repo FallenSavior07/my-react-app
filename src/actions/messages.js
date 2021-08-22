@@ -1,4 +1,3 @@
-import { AUTHORS, MESSAGES } from '../components/App/constants';
 import { currentDate } from '../shared/currentDate';
 import firebase from 'firebase';
 
@@ -25,8 +24,8 @@ export const addMessageWithThunk = (chatId, message) => {
 				.child(chatId)
 				.push({
 					id: `message${Date.now()}`,
-					author: AUTHORS.BOT,
-					text: MESSAGES.DEFAULT_BOT_MESSSAGE,
+					author: 'Робот Василий',
+					text: `Привет, ${message.author}! Как дела?`,
 					date: currentDate(),
 				})
 

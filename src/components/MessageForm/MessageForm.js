@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react';
 import clsx from 'clsx';
 import { Button, Icon, TextField } from "@material-ui/core";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { AUTHORS } from '../App/constants';
+import { useSelector } from 'react-redux';
 
 const MessageInput = withStyles({
 	root: {
@@ -35,6 +35,8 @@ export default function MessageForm(props) {
 		onSubmit
 	} = props;
 
+	const userName = useSelector(state => state.profile.name);
+
 	const classes = useStyles();
 
 	const [value, setValue] = useState("");
@@ -47,7 +49,7 @@ export default function MessageForm(props) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		onSubmit(value, AUTHORS.ME);
+		onSubmit(value, userName);
 		setValue('');
 		setTimeout(() => inputRef.current?.focus(), 200)
 	}
