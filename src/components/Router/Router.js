@@ -11,11 +11,6 @@ import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 import { useSelector } from 'react-redux';
 
-const PrivateRoute = (props) => {
-	const isAuthed = useSelector((state) => state.profile.isAuthed);
-	return isAuthed ? <Route {...props} /> : <Redirect to="/login" />;
-}
-
 export default function Router() {
 	return (
 		<Switch>
@@ -39,6 +34,9 @@ export default function Router() {
 			</Route>
 			<Route path="/signup">
 				<SignUp />
+			</Route>
+			<Route path="/gists">
+				<GistsList />
 			</Route>
 			<Route>
 				<p>404: not found</p>

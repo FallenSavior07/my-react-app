@@ -8,7 +8,6 @@ import { currentDate } from '../../shared/currentDate';
 import { useIsChatExists } from '../../hooks/useIsChatExists';
 import { useEffect } from 'react';
 
-
 export default function ChatContainer() {
 	const { chatId } = useParams();
 	const dispatch = useDispatch();
