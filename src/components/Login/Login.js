@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Input from '../Input/Input';
 import LoginButton from '../Button/Button';
-import { Redirect } from 'react-router-dom';
 
 export default function Login(props) {
 	const [email, setEmail] = useState('');

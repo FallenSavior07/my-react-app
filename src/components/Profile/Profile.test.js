@@ -8,25 +8,25 @@ import { Provider } from 'react-redux';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-jest.mock("react-redux", () => ({
-	useDispatch: jest.fn(),
-	useSelector: jest.fn()
-}))
+// jest.mock("react-redux", () => ({
+// 	useDispatch: jest.fn(),
+// 	useSelector: jest.fn()
+// }))
 
 describe('Profile test', () => {
-	// it('matches snapshot online', () => {
+	it('matches snapshot online', () => {
 
-	// 	let state = {};
-	// 	const store = mockStore(() => state);
+		// let state = {};
+		const store = mockStore(() => ({ profile: {} }));
 
-	// 	const component = render(
-	// 		<Provider store={store}>
-	// 			<ProfileContainer />
-	// 		</Provider>
-	// 	);
+		const component = render(
+			<Provider store={store}>
+				<ProfileContainer />
+			</Provider>
+		);
 
-	// 	expect(component).toMatchSnapshot();
-	// });
+		expect(component).toMatchSnapshot();
+	});
 
 
 	it('dispatches changeName', () => {

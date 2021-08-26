@@ -1,0 +1,448 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile test matches snapshot online 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <main
+        class="app__main main"
+      >
+        <section
+          class="profile container"
+        >
+          <h2
+            class="profile__title visually-hidden"
+          >
+            Profile page
+          </h2>
+          <div
+            class="profile__inner"
+          >
+            <div
+              class="profile__info info"
+            >
+              <h4
+                class="info__title"
+              >
+                Информация о пользователе
+              </h4>
+              <img
+                alt="avatar"
+                class="info__image"
+                height="120"
+                src="avatar.png"
+                width="120"
+              />
+              <p
+                class="info__name"
+              >
+                Имя: 
+              </p>
+              <p
+                class="info__age"
+              >
+                Возраст: 
+              </p>
+            </div>
+            <hr
+              class="profile__line"
+            />
+            <div
+              class="profile__settings settings"
+            >
+              <h4
+                class="settings__title"
+              >
+                Настройки
+              </h4>
+              <label
+                class="MuiFormControlLabel-root settings__online-status"
+              >
+                <span
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-3 MuiCheckbox-root Component-root-1"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <input
+                      class="PrivateSwitchBase-input-6"
+                      data-indeterminate="false"
+                      name="checkedG"
+                      type="checkbox"
+                      value=""
+                    />
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </span>
+                <span
+                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                >
+                  Показывать статус "в сети"?
+                </span>
+              </label>
+              <div
+                class="settings__name change-name-form"
+              >
+                <p
+                  class="change-name-form__label"
+                >
+                  Изменить имя
+                </p>
+                <form
+                  action="#"
+                  class="change-name-form__input message-form__button"
+                >
+                  <div
+                    class="MuiFormControl-root MuiTextField-root WithStyles(ForwardRef(TextField))-root-8 message-form__input"
+                  >
+                    <label
+                      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-focused Mui-focused Mui-required Mui-required"
+                      data-shrink="true"
+                      for="outlined-basic"
+                      id="outlined-basic-label"
+                    >
+                      Введите новое имя...
+                      <span
+                        aria-hidden="true"
+                        class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                      >
+                         
+                        *
+                      </span>
+                    </label>
+                    <div
+                      class="MuiInputBase-root MuiOutlinedInput-root Mui-focused Mui-focused MuiInputBase-formControl"
+                    >
+                      <input
+                        aria-invalid="false"
+                        class="MuiInputBase-input MuiOutlinedInput-input"
+                        id="outlined-basic"
+                        required=""
+                        type="text"
+                        value=""
+                      />
+                      <fieldset
+                        aria-hidden="true"
+                        class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+                      >
+                        <legend
+                          class="PrivateNotchedOutline-legendLabelled-11 PrivateNotchedOutline-legendNotched-12"
+                        >
+                          <span>
+                            Введите новое имя...
+                             *
+                          </span>
+                        </legend>
+                      </fieldset>
+                    </div>
+                  </div>
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-7 message-form__button MuiButton-containedPrimary"
+                    tabindex="0"
+                    type="submit"
+                  >
+                    <span
+                      class="MuiButton-label"
+                    >
+                      Отправить
+                      <span
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="material-icons MuiIcon-root"
+                        >
+                          send
+                        </span>
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </form>
+              </div>
+            </div>
+            <hr
+              class="profile__line"
+            />
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-13 profile__exit-button MuiButton-containedPrimary"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Выйти из аккаунта
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <main
+      class="app__main main"
+    >
+      <section
+        class="profile container"
+      >
+        <h2
+          class="profile__title visually-hidden"
+        >
+          Profile page
+        </h2>
+        <div
+          class="profile__inner"
+        >
+          <div
+            class="profile__info info"
+          >
+            <h4
+              class="info__title"
+            >
+              Информация о пользователе
+            </h4>
+            <img
+              alt="avatar"
+              class="info__image"
+              height="120"
+              src="avatar.png"
+              width="120"
+            />
+            <p
+              class="info__name"
+            >
+              Имя: 
+            </p>
+            <p
+              class="info__age"
+            >
+              Возраст: 
+            </p>
+          </div>
+          <hr
+            class="profile__line"
+          />
+          <div
+            class="profile__settings settings"
+          >
+            <h4
+              class="settings__title"
+            >
+              Настройки
+            </h4>
+            <label
+              class="MuiFormControlLabel-root settings__online-status"
+            >
+              <span
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-3 MuiCheckbox-root Component-root-1"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <input
+                    class="PrivateSwitchBase-input-6"
+                    data-indeterminate="false"
+                    name="checkedG"
+                    type="checkbox"
+                    value=""
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </span>
+              <span
+                class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+              >
+                Показывать статус "в сети"?
+              </span>
+            </label>
+            <div
+              class="settings__name change-name-form"
+            >
+              <p
+                class="change-name-form__label"
+              >
+                Изменить имя
+              </p>
+              <form
+                action="#"
+                class="change-name-form__input message-form__button"
+              >
+                <div
+                  class="MuiFormControl-root MuiTextField-root WithStyles(ForwardRef(TextField))-root-8 message-form__input"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-focused Mui-focused Mui-required Mui-required"
+                    data-shrink="true"
+                    for="outlined-basic"
+                    id="outlined-basic-label"
+                  >
+                    Введите новое имя...
+                    <span
+                      aria-hidden="true"
+                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiOutlinedInput-root Mui-focused Mui-focused MuiInputBase-formControl"
+                  >
+                    <input
+                      aria-invalid="false"
+                      class="MuiInputBase-input MuiOutlinedInput-input"
+                      id="outlined-basic"
+                      required=""
+                      type="text"
+                      value=""
+                    />
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legendLabelled-11 PrivateNotchedOutline-legendNotched-12"
+                      >
+                        <span>
+                          Введите новое имя...
+                           *
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                </div>
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-7 message-form__button MuiButton-containedPrimary"
+                  tabindex="0"
+                  type="submit"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    Отправить
+                    <span
+                      class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="material-icons MuiIcon-root"
+                      >
+                        send
+                      </span>
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </form>
+            </div>
+          </div>
+          <hr
+            class="profile__line"
+          />
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-button-13 profile__exit-button MuiButton-containedPrimary"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              Выйти из аккаунта
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

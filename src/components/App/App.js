@@ -37,19 +37,19 @@ export default function App() {
               <li className="nav__item nav-item">
                 <Link className="nav-item__link link" to="/">Домой</Link>
               </li>
-              <li className={clsx(isAuthed ? null : "hidden", "nav__item")}>
+              <li className={clsx("nav__item", { "hidden": !isAuthed })}>
                 <Link className="nav-item__link link" to="/chats">Чаты</Link>
               </li>
               <li className="nav__item nav-item">
                 <Link className="nav-item__link link" to="/gists">Gists</Link>
               </li>
-              <li className={clsx(isAuthed ? null : "hidden", "nav__item")}>
+              <li className={clsx("nav__item", { "hidden": !isAuthed })}>
                 <Link className="nav-item__link link" to="/profile">Профиль</Link>
               </li>
-              <li className={clsx(isAuthed ? "hidden" : null, "nav__item")}>
+              <li className={clsx("nav__item", { "hidden": isAuthed })}>
                 <Link className="nav-item__link link" to="/signup">Регистрация</Link>
               </li>
-              <li className={clsx(isAuthed ? "hidden" : null, "nav__item")}>
+              <li className={clsx("nav__item", { "hidden": isAuthed })}>
                 <Link className="nav-item__link link" to="/login">Войти в аккаунт</Link>
               </li>
             </ul>
@@ -60,3 +60,4 @@ export default function App() {
     </ThemeProvider>
   );
 }
+
