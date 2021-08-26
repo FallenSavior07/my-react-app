@@ -6,6 +6,10 @@ import ChatsContainer from '../Chats/ChatsContainer';
 import ChatContainer from '../Chat/ChatContainer';
 import ProfileContainer from '../Profile/ProfileContainer';
 import GistsList from '../GistsList/GistsList';
+import { Redirect } from 'react-router-dom';
+import Login from '../Login/Login';
+import SignUp from '../SignUp/SignUp';
+import { useSelector } from 'react-redux';
 
 export default function Router() {
 	return (
@@ -13,14 +17,23 @@ export default function Router() {
 			<Route path="/" exact>
 				<Home />
 			</Route>
-			<Route path="/chats" exact>
+			<PrivateRoute path="/chats" exact>
 				<ChatsContainer />
-			</Route>
-			<Route path="/chats/:chatId">
+			</PrivateRoute>
+			<PrivateRoute path="/chats/:chatId">
 				<ChatContainer />
-			</Route>
-			<Route path="/profile">
+			</PrivateRoute>
+			<PrivateRoute path="/profile">
 				<ProfileContainer />
+			</PrivateRoute>
+			<Route path="/gists">
+				<GistsList />
+			</Route>
+			<Route path="/login">
+				<Login />
+			</Route>
+			<Route path="/signup">
+				<SignUp />
 			</Route>
 			<Route path="/gists">
 				<GistsList />

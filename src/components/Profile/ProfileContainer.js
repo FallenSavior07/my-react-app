@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Profile from './Profile';
 import { changeIsOnline, changeName } from '../../actions/profile';
 import { profileSelector } from '../../selectors/profile';
+import firebase from 'firebase';
 
 export default function ProfileContainer() {
 	const { age, name, isOnline } = useSelector(profileSelector);
@@ -18,6 +19,11 @@ export default function ProfileContainer() {
 		dispatch(changeName(newUserName));
 	}
 
+	const handleSignOut = (event) => {
+		event.preventDefault()
+		firebase.auth().signOut()
+	}
+
 	return (
 		<Profile
 			age={age}
@@ -25,6 +31,7 @@ export default function ProfileContainer() {
 			isOnline={isOnline}
 			handleChangeIsOnline={handleChangeIsOnline}
 			handleChangeName={handleChangeName}
+			handleSignOut={handleSignOut}
 		/>
 	)
 }

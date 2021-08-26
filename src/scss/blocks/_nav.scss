@@ -3,7 +3,11 @@
 	@include flex-y-center;
 
 	&__list {
-		@include flex-space-between;
-		width: 300px;
+		display: flex;
+		width: 620px;
+	}
+
+	&__item {
+		margin: 0 20px 0 0;
 	}
 }

@@ -8,9 +8,10 @@
     }
 
     &__list {
-        @include flex-column-x-center;
+        display: flex;
+        flex-direction: column;
         min-height: 100px;
-        margin: 50px 0 80px;
+        margin: 50px 0 50px 60px;
         list-style-type: none;
     }
 
@@ -19,6 +20,6 @@
         min-width: 400px;
         min-height: 50px;
         position: relative;
-        margin: 30px 0 0 0;
+        margin: 30px 0;
     }
 }

@@ -10,7 +10,6 @@ export default function Chat(props) {
 		<main className="app__main main">
 			<section className="chat container">
 				<div className="chat__wrapper">
-					<MessageForm onSubmit={onAddMessage} />
 					<ul className="chat__list" > {
 						messages.map((message, i) => {
 							return <li className="chat__item message" key={message.id}>
@@ -22,6 +21,7 @@ export default function Chat(props) {
 							</li>
 						})
 					} </ul>
+					<MessageForm onSubmit={onAddMessage} />
 				</div>
 			</section>
 		</main>

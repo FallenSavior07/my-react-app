@@ -11,6 +11,7 @@ import gistsReducer from './reducers/gists';
 const persistConfig = {
 	key: 'root',
 	storage,
+	blacklist: ['messages', 'message', 'chats', 'chat']
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -23,7 +24,7 @@ const rootReducer = combineReducers({
 	profile: profileReducer,
 });
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = createStore(
 	persistedReducer,
