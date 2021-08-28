@@ -2,12 +2,20 @@ import { currentDate } from '../shared/currentDate';
 import firebase from 'firebase';
 
 export const ADD_MESSAGE = 'MESSAGES::ADD_MESSAGE';
+export const CLEAR_MESSAGES_BY_CHATID = 'MESSAGES::CLEAR_MESSAGES_BY_CHATID';
 
 export const addMessage = (chatId, message) => ({
 	type: ADD_MESSAGE,
 	payload: {
 		chatId,
 		message
+	}
+});
+
+export const clearMessagesByChatId = (chatId) => ({
+	type: CLEAR_MESSAGES_BY_CHATID,
+	payload: {
+		chatId
 	}
 });
 

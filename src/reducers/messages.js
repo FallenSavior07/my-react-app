@@ -1,11 +1,6 @@
-import { ADD_MESSAGE } from "../actions/messages";
+import { ADD_MESSAGE, CLEAR_MESSAGES_BY_CHATID } from "../actions/messages";
 
-const initialState = {
-	// chat1: [
-	// 	{ id: 'message1', author: AUTHORS.ME, text: MESSAGES.DEFAULT_USER_MESSSAGE, date: null },
-	// 	{ id: 'message2', author: AUTHORS.BOT, text: MESSAGES.DEFAULT_BOT_MESSSAGE, date: null },
-	// ],
-};
+const initialState = {};
 
 export default function messagesReducer(state = initialState, action) {
 	switch (action.type) {
@@ -16,6 +11,13 @@ export default function messagesReducer(state = initialState, action) {
 					...(state[action.payload.chatId] || []),
 					action.payload.message,
 				],
+			}
+		}
+		case CLEAR_MESSAGES_BY_CHATID: {
+			delete state[action.payload.chatId]
+
+			return {
+				...state
 			}
 		}
 		default:

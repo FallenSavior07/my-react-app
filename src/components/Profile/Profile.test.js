@@ -8,15 +8,9 @@ import { Provider } from 'react-redux';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-// jest.mock("react-redux", () => ({
-// 	useDispatch: jest.fn(),
-// 	useSelector: jest.fn()
-// }))
 
 describe('Profile test', () => {
 	it('matches snapshot online', () => {
-
-		// let state = {};
 		const store = mockStore(() => ({ profile: {} }));
 
 		const component = render(
